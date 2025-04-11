@@ -1,6 +1,6 @@
 import project1 from "../assets/images/Movie_app.png";
-import image2 from "../assets/images/2.png";
-import image3 from "../assets/images/3.png";
+import project2 from "../assets/images/Weather_app.png";
+import project3 from "../assets/images/Calculator_app.png";
 import image4 from "../assets/images/4.png";
 import image5 from "../assets/images/5.png";
 
@@ -16,18 +16,20 @@ const projectsData = [
     link: "https://movie-app-test3.vercel.app/",
   },
   {
-    image: image2,
-    title: "Project 2",
-    description: "Description of project 2",
-    technologies: ["React", "JavaScript", "CSS"],
-    link: "https://example.com/project2",
+    image: project2,
+    title: "Weather App",
+    description:
+      "A simple, responsive app that shows real-time weather by location or search, built with modern web technologies.",
+    technologies: ["HTML", "CSS", "JavaScript", "React"],
+    link: "https://weather-app-demo-flax.vercel.app/",
   },
   {
-    image: image3,
-    title: "Project 3",
-    description: "Description of project 3",
-    technologies: ["React", "JavaScript", "CSS"],
-    link: "https://example.com/project3",
+    image: project3,
+    title: "Calculator-App",
+    description:
+      "A responsive calculator web app built with React, featuring a clean UI and support for basic arithmetic operations.",
+    technologies: ["HTML", "CSS", "JavaScript", "React"],
+    link: "https://calculator-app-eight-swart.vercel.app/",
   },
   {
     image: image4,
