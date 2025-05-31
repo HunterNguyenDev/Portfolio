@@ -4,17 +4,27 @@ import {
   BiLogoJavascript,
   BiLogoNodejs,
   BiLogoReact,
+  BiLogoRedux,
   BiLogoTailwindCss,
 } from "react-icons/bi";
-
 import { motion } from "framer-motion";
 
-const Tech = () => {
-  const variants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
-  };
+const variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0 },
+};
 
+const icons = [
+  { Icon: BiLogoHtml5, color: "text-orange-500", name: "HTML5" },
+  { Icon: BiLogoCss3, color: "text-blue-500", name: "CSS3" },
+  { Icon: BiLogoJavascript, color: "text-yellow-400", name: "JavaScript" },
+  { Icon: BiLogoTailwindCss, color: "text-sky-400", name: "Tailwind CSS" },
+  { Icon: BiLogoReact, color: "text-cyan-400", name: "React" },
+  { Icon: BiLogoRedux, color: "text-purple-600", name: "Redux" }, 
+  { Icon: BiLogoNodejs, color: "text-green-500", name: "Node.js" },
+];
+
+const Tech = () => {
   return (
     <div
       id="tech"
@@ -30,59 +40,26 @@ const Tech = () => {
         Technologies
       </motion.h1>
 
-      <div className="flex flex-wrap items-center justify-center gap-10 p-5">
+      <div className="py-10">
         <motion.div
           variants={variants}
           initial="hidden"
           whileInView="visible"
           transition={{ duration: 0.5 }}
+          className="flex flex-row flex-wrap justify-center gap-10"
         >
-          <BiLogoHtml5 className="cursor-pointer text-[80px] text-orange-600 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]" />
-        </motion.div>
-
-        <motion.div
-          variants={variants}
-          initial="hidden"
-          whileInView="visible"
-          transition={{ duration: 0.5 }}
-        >
-          <BiLogoCss3 className="cursor-pointer text-[80px] text-blue-700 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]" />
-        </motion.div>
-
-        <motion.div
-          variants={variants}
-          initial="hidden"
-          whileInView="visible"
-          transition={{ duration: 0.5 }}
-        >
-          <BiLogoJavascript className="cursor-pointer text-[80px] text-yellow-500 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]" />
-        </motion.div>
-
-        <motion.div
-          variants={variants}
-          initial="hidden"
-          whileInView="visible"
-          transition={{ duration: 0.5 }}
-        >
-          <BiLogoTailwindCss className="cursor-pointer text-[80px] text-sky-400 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]" />
-        </motion.div>
-
-        <motion.div
-          variants={variants}
-          initial="hidden"
-          whileInView="visible"
-          transition={{ duration: 0.5 }}
-        >
-          <BiLogoReact className="cursor-pointer text-[80px] text-sky-500 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]" />
-        </motion.div>
-
-        <motion.div
-          variants={variants}
-          initial="hidden"
-          whileInView="visible"
-          transition={{ duration: 0.5 }}
-        >
-          <BiLogoNodejs className="cursor-pointer text-[80px] text-green-400 transition-all duration-300 hover:-translate-y-5 sm:text-[100px] md:text-[120px]" />
+          {icons.map(({ Icon, color, name }) => (
+            <div key={name} className="group flex flex-col items-center">
+              <Icon
+                aria-label={name}
+                title={name}
+                className={`cursor-pointer text-[80px] transition-all duration-300 ease-in-out hover:-translate-y-5 sm:text-[100px] md:text-[120px] ${color}`}
+              />
+              <span className="mt-2 text-xl text-gray-200 transition group-hover:font-semibold sm:text-base">
+                {name}
+              </span>
+            </div>
+          ))}
         </motion.div>
       </div>
     </div>

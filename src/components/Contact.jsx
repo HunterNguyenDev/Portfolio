@@ -11,7 +11,7 @@ const Contact = () => {
           </span>
         </h1>
         <p className="text-center text-lg font-semibold text-gray-500">
-          Want to chat? Send me an E-mail through this button and I''ll respond as soon as possible!
+          Want to chat? Send me an E-mail through this button and I'll respond as soon as possible!
         </p>
 
         <a
