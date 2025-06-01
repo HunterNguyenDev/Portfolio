@@ -21,7 +21,7 @@ const NavBar = () => {
     },
     {
       icon: <BsGithub />,
-      href: "https://github.com/HunterNguyenDev",
+      href: "https://github.com/haunguyen79",
       label: "GitHub",
       color: "hover:text-gray-500",
     },

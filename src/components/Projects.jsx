@@ -1,12 +1,17 @@
 import { motion } from "framer-motion";
 import projectsData from "../data/projectsData";
 
-// ScrollReveal Component 
+const variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0 },
+};
+
+// ScrollReveal Component
 const ScrollReveal = ({ children }) => (
   <motion.div
-    initial={{ opacity: 0, y: 100 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
+    variants={variants}
+    initial="hidden"
+    whileInView="visible"
     transition={{ duration: 0.5 }}
   >
     {children}
@@ -14,7 +19,9 @@ const ScrollReveal = ({ children }) => (
 );
 
 // ProjectCard Component
-const ProjectCard = ({ project: { image, title, description, technologies, link } }) => (
+const ProjectCard = ({
+  project: { image, title, description, technologies, link },
+}) => (
   <ScrollReveal>
     <a href={link} target="_blank" rel="noopener noreferrer">
       <article className="flex flex-col gap-8 md:flex-row md:gap-24">
@@ -48,9 +55,11 @@ const Projects = () => (
     className="flex min-h-screen w-full flex-col items-center justify-center gap-16 p-4 md:px-24 md:py-24"
   >
     <ScrollReveal>
-      <h1 className="text-4xl font-light text-white md:text-6xl">My Projects</h1>
+      <h1 className="text-4xl font-light text-white md:text-6xl">
+        My Projects
+      </h1>
     </ScrollReveal>
-    <div className="flex w-full max-w-[1000px] flex-col gap-16 text-white">
+    <div className="flex w-full max-w-[1000px] flex-col gap-16 text-white py-10">
       {projectsData.map((project) => (
         <ProjectCard key={project.title} project={project} />
       ))}
