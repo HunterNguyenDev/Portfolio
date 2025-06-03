@@ -15,7 +15,7 @@ const NavBar = () => {
   const socialLinks = [
     {
       icon: <BsLinkedin />,
-      href: "https://www.linkedin.com/in/v%C4%83n-h%E1%BA%ADu-nguy%E1%BB%85n-258846342/",
+      href: "https://www.linkedin.com/in/haunguyen79",
       label: "LinkedIn",
       color: "hover:text-blue-400",
     },
