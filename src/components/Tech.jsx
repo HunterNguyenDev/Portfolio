@@ -6,6 +6,7 @@ import {
   BiLogoReact,
   BiLogoRedux,
   BiLogoTailwindCss,
+  BiLogoTypescript,
 } from "react-icons/bi";
 import { motion } from "framer-motion";
 
@@ -18,9 +19,10 @@ const icons = [
   { Icon: BiLogoHtml5, color: "text-orange-500", name: "HTML5" },
   { Icon: BiLogoCss3, color: "text-blue-500", name: "CSS3" },
   { Icon: BiLogoJavascript, color: "text-yellow-400", name: "JavaScript" },
+  { Icon: BiLogoTypescript, color: "text-blue-500", name: "TypeScript" },
   { Icon: BiLogoTailwindCss, color: "text-sky-400", name: "Tailwind CSS" },
   { Icon: BiLogoReact, color: "text-cyan-400", name: "React" },
-  { Icon: BiLogoRedux, color: "text-purple-600", name: "Redux" }, 
+  { Icon: BiLogoRedux, color: "text-purple-600", name: "Redux" },
   { Icon: BiLogoNodejs, color: "text-green-500", name: "Node.js" },
 ];
 
