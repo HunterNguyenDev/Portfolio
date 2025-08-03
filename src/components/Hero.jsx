@@ -2,6 +2,8 @@ import { useState } from "react";
 import avatar from "../assets/images/avatar.png";
 import resume from "../assets/resume/Nguyen-Van-Hau_Frontend-Developer.pdf";
 import { AnimatePresence, motion } from "framer-motion";
+import { FaArrowDown } from "react-icons/fa";
+import { MdExpandLess, MdExpandMore } from "react-icons/md";
 
 const Hero = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -40,7 +42,7 @@ const Hero = () => {
           className="flex max-w-[600px] flex-col items-center justify-center gap-3 text-center"
         >
           {/* Tên */}
-          <h1 className="h-12 md:h-14 bg-gradient-to-r from-blue-500 to-pink-500 bg-clip-text text-4xl font-light whitespace-nowrap text-transparent md:text-5xl">
+          <h1 className="h-12 bg-gradient-to-r from-blue-500 to-pink-500 bg-clip-text text-4xl font-light whitespace-nowrap text-transparent md:h-14 md:text-5xl">
             Nguyen Van Hau
           </h1>
 
@@ -61,7 +63,15 @@ const Hero = () => {
             onClick={handleToggle}
             className="mt-1 text-sm text-blue-400 hover:underline"
           >
-            {isExpanded ? "See Less" : "See More"}
+            {isExpanded ? (
+              <span className="flex items-center gap-1">
+                See Less <MdExpandLess />
+              </span>
+            ) : (
+              <span className="flex items-center gap-1">
+                See More <MdExpandMore />
+              </span>
+            )}
           </button>
 
           {/* Nút download CV */}
@@ -70,9 +80,9 @@ const Hero = () => {
             rel="noopener noreferrer"
             download
             aria-label
-            className="mt-5 rounded-4xl bg-gradient-to-r from-pink-500 to-blue-500 px-5 py-4 text-white shadow-lg transition-all duration-300 hover:bg-indigo-600 hover:shadow-xl hover:shadow-indigo-600 md:px-6 md:py-5"
+            className="mt-5 flex items-center gap-2 rounded-4xl bg-gradient-to-r from-pink-500 to-blue-500 px-5 py-4 text-white shadow-lg transition-all duration-300 hover:bg-indigo-600 hover:shadow-xl hover:shadow-indigo-600 md:px-5 md:py-4"
           >
-            Download Resume
+            Download Resume <FaArrowDown size={16} />
           </a>
         </motion.div>
       </div>

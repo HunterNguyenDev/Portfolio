@@ -2,42 +2,42 @@ import { useState } from "react";
 import { BiMenu, BiX } from "react-icons/bi";
 import { BsFacebook, BsGithub, BsLinkedin, BsYoutube } from "react-icons/bs";
 
+const menuItems = [
+  { label: "Home", href: "#home" },
+  { label: "Tech", href: "#tech" },
+  { label: "Project", href: "#project" },
+  { label: "Contact", href: "#contact" },
+];
+
+const socialLinks = [
+  {
+    icon: <BsLinkedin />,
+    href: "https://www.linkedin.com/in/haunguyen79",
+    label: "LinkedIn",
+    color: "hover:text-blue-400",
+  },
+  {
+    icon: <BsGithub />,
+    href: "https://github.com/haunguyen79",
+    label: "GitHub",
+    color: "hover:text-gray-500",
+  },
+  {
+    icon: <BsFacebook />,
+    href: null,
+    label: "Facebook",
+    color: "hover:text-blue-600",
+  },
+  {
+    icon: <BsYoutube />,
+    href: null,
+    label: "YouTube",
+    color: "hover:text-red-500",
+  },
+];
+
 const NavBar = () => {
   const [isOpened, setIsOpened] = useState(false);
-
-  const menuItems = [
-    { label: "Home", href: "#home" },
-    { label: "Tech", href: "#tech" },
-    { label: "Project", href: "#project" },
-    { label: "Contact", href: "#contact" },
-  ];
-
-  const socialLinks = [
-    {
-      icon: <BsLinkedin />,
-      href: "https://www.linkedin.com/in/haunguyen79",
-      label: "LinkedIn",
-      color: "hover:text-blue-400",
-    },
-    {
-      icon: <BsGithub />,
-      href: "https://github.com/haunguyen79",
-      label: "GitHub",
-      color: "hover:text-gray-500",
-    },
-    {
-      icon: <BsFacebook />,
-      href: null,
-      label: "Facebook",
-      color: "hover:text-blue-600",
-    },
-    {
-      icon: <BsYoutube />,
-      href: null,
-      label: "YouTube",
-      color: "hover:text-red-500",
-    },
-  ];
 
   return (
     <nav className="fixed top-0 z-10 flex w-full items-center justify-between border-b border-b-gray-700 bg-black/70 px-16 py-6 text-white backdrop-blur-md md:justify-evenly">
@@ -91,9 +91,15 @@ const NavBar = () => {
 
       {/* Hamburger Icon (Mobile) */}
       {isOpened ? (
-        <BiX className="block text-4xl md:hidden" onClick={() => setIsOpened(false)} />
+        <BiX
+          className="block text-4xl md:hidden"
+          onClick={() => setIsOpened(false)}
+        />
       ) : (
-        <BiMenu className="block text-4xl md:hidden" onClick={() => setIsOpened(true)} />
+        <BiMenu
+          className="block text-4xl md:hidden"
+          onClick={() => setIsOpened(true)}
+        />
       )}
 
       {/* Menu (Mobile) */}
