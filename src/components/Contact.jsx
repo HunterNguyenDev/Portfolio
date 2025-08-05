@@ -64,7 +64,7 @@ const Contact = () => {
 
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
             <div className="space-y-8 p-8">
-              <h3 className="mb-6 text-3xl font-medium text-white">
+              <h3 className="mb-6 text-3xl font-medium text-white text-center md:text-left">
                 Contact Information
               </h3>
 
@@ -78,7 +78,7 @@ const Contact = () => {
                     <h4 className="font-medium text-white">Email</h4>
                     <a
                       href="mailto:hauhonguyen2001@gmail.com"
-                      className="text-muted-foreground hover text-primary transition-colors"
+                      className="text-muted-foreground text-primary transition-colors flex flex-wrap break-all "
                     >
                       hauhonguyen2001@gmail.com
                     </a>
@@ -94,7 +94,7 @@ const Contact = () => {
                     <h4 className="font-medium text-white">Phone</h4>
                     <a
                       href="tel: +84368047739"
-                      className="text-muted-foreground hover text-primary transition-colors"
+                      className="text-muted-foreground text-primary transition-colors"
                     >
                       +84 368047739
                     </a>
@@ -112,7 +112,7 @@ const Contact = () => {
                       href="https://www.google.com/maps?q=Thu+Duc,+Ho+Chi+Minh+City"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-muted-foreground hover text-primary transition-colors"
+                      className="text-muted-foreground text-primary transition-colors"
                     >
                       Thu Duc, Ho Chi Minh City, Vietnam
                     </a>
@@ -122,7 +122,7 @@ const Contact = () => {
             </div>
 
             <div className="rounded-3xl p-8 text-white shadow-xs">
-              <h3 className="mb-6 text-3xl font-medium text-white">
+              <h3 className="mb-6 text-3xl font-medium text-white text-center md:text-left">
                 Send Message
               </h3>
 
