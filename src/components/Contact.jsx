@@ -29,6 +29,10 @@ const Contact = () => {
     message: "",
   });
 
+  const handleChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -64,7 +68,7 @@ const Contact = () => {
 
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
             <div className="space-y-8 p-8">
-              <h3 className="mb-6 text-3xl font-medium text-white text-center md:text-left">
+              <h3 className="mb-6 text-center text-3xl font-medium text-white md:text-left">
                 Contact Information
               </h3>
 
@@ -78,7 +82,7 @@ const Contact = () => {
                     <h4 className="font-medium text-white">Email</h4>
                     <a
                       href="mailto:hauhonguyen2001@gmail.com"
-                      className="text-muted-foreground text-primary transition-colors flex flex-wrap break-all "
+                      className="text-muted-foreground text-primary flex flex-wrap break-all transition-colors"
                     >
                       hauhonguyen2001@gmail.com
                     </a>
@@ -122,15 +126,15 @@ const Contact = () => {
             </div>
 
             <div className="rounded-3xl p-8 text-white shadow-xs">
-              <h3 className="mb-6 text-3xl font-medium text-white text-center md:text-left">
+              <h3 className="mb-6 text-center text-3xl font-medium text-white md:text-left">
                 Send Message
               </h3>
 
-              <form className="space-y-6" onSubmit={handleSubmit}>
-                <div>
+              <form className="space-y-7" onSubmit={handleSubmit}>
+                <div className="relative h-16">
                   <label
                     htmlFor="name"
-                    className="mb-2 block text-sm font-medium"
+                    className="absolute -top-3 left-4 z-10 rounded-md bg-black/80 px-1"
                   >
                     {" "}
                     Your Name
@@ -141,19 +145,17 @@ const Contact = () => {
                     id="name"
                     name="name"
                     required
-                    className="border-input focus:ring-primary w-full rounded-md border px-4 py-3 focus:ring-2 focus:outline-none"
+                    className="focus:ring-primary top-0 left-0 z-[1] w-full rounded-lg border bg-transparent px-5 py-4 focus:ring-2 focus:outline-none"
                     placeholder="Hunter Nguyen..."
                     value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
+                    onChange={handleChange}
                   />
                 </div>
 
-                <div>
+                <div className="relative h-16">
                   <label
                     htmlFor="email"
-                    className="mb-2 block text-sm font-medium"
+                    className="absolute -top-3 left-4 z-10 rounded-md bg-black/80 px-1"
                   >
                     {" "}
                     Your Email
@@ -164,19 +166,17 @@ const Contact = () => {
                     id="email"
                     name="email"
                     required
-                    className="border-input focus:ring-primary w-full rounded-md border px-4 py-3 focus:ring-2 focus:outline-none"
+                    className="focus:ring-primary top-0 left-0 z-[1] w-full rounded-lg border bg-transparent px-5 py-4 focus:ring-2 focus:outline-none"
                     placeholder="hunternguyen@gmail.com"
                     value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
+                    onChange={handleChange}
                   />
                 </div>
 
-                <div>
+                <div className="relative h-16">
                   <label
                     htmlFor="message"
-                    className="mb-2 block text-sm font-medium"
+                    className="absolute -top-3 left-4 z-10 rounded-md bg-black/80 px-1"
                   >
                     {" "}
                     Message
@@ -187,19 +187,17 @@ const Contact = () => {
                     id="message"
                     name="message"
                     required
-                    className="border-input focus:ring-primary w-full rounded-md border px-4 py-3 focus:ring-2 focus:outline-none"
+                    className="focus:ring-primary top-0 left-0 z-[1] w-full resize-none rounded-lg border bg-transparent px-5 py-4 focus:ring-2 focus:outline-none"
                     placeholder="Hello, I'd like to talk about..."
                     value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
+                    onChange={handleChange}
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="mt-3 flex w-full items-center justify-center gap-2 rounded-4xl bg-gradient-to-r from-pink-500 to-blue-500 px-3 py-2 text-white shadow-lg transition-all duration-300 hover:bg-indigo-600 hover:shadow-xl hover:shadow-indigo-600 md:px-3 md:py-2"
+                  className="mt-12 flex w-full items-center justify-center gap-2 rounded-4xl bg-gradient-to-r from-pink-500 to-blue-500 px-3 py-2 text-white shadow-lg transition-all duration-300 hover:bg-indigo-600 hover:shadow-xl hover:shadow-indigo-600 md:px-3 md:py-2"
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
                   <LuSend size={16} />
