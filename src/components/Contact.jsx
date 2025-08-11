@@ -1,7 +1,11 @@
+import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { CiLocationOn, CiMail, CiPhone } from "react-icons/ci";
 import { LuSend } from "react-icons/lu";
+
+import toast from "react-hot-toast";
 
 const variants = {
   hidden: { opacity: 0, y: 50 },
@@ -29,22 +33,70 @@ const Contact = () => {
     message: "",
   });
 
+  const form = useRef();
+
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const validateForm = () => {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      toast.error("Please enter a valid email address");
+      return false;
+    }
+    if (formData.message.trim().length < 5) {
+      toast.error("Message must be at least 5 characters");
+      return false;
+    }
+    return true;
+  };
 
+  const sendEmail = (e) => {
+    e.preventDefault();
+    if (!validateForm()) return;
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      alert("Message sent successfully!");
+    // Use EmailJS to send the form data
+    // Cach 1: toast.promise
+    
+    toast
+      .promise(
+        emailjs.sendForm("service_uyhqd2q", "template_efb6uls", form.current, {
+          publicKey: "XvUjKeUKwkjS7zMv1",
+        }), //gửi dữ liệu form đến EmailJS API
+        {
+          loading: "Sending message...",
+          success: "Message sent successfully!",
+          error: "Failed to send message. Please try again later.",
+        },
+      )
+      .then(() => setFormData({ name: "", email: "", message: "" }))
+      .finally(() => setIsSubmitting(false));
 
-      setIsSubmitting(false);
+    // Cach 2: KHONG dung toast.promise (Cách thông thường)
 
-      setFormData({ name: "", email: "", message: "" });
-    }, 1500);
+    /* setIsSubmitting(true);
+    toast.loading("Sending message..."); // Hiện toast trạng thái loading
+
+    emailjs
+      .sendForm("service_uyhqd2q", "template_efb6uls", form.current, {
+        publicKey: "XvUjKeUKwkjS7zMv1",
+      })
+      .then(() => {
+        toast.dismiss(); // Tắt toast loading
+        toast.success("Message sent successfully!");
+        setFormData({ name: "", email: "", message: "" });
+      })
+      .catch(() => {
+        toast.dismiss();
+        toast.error("Failed to send message. Please try again later.");
+      })
+      .finally(() => {
+        setIsSubmitting(false); // Bật lại nút submit
+      });
+    **/
+
+    console.log({ toast, formData });
   };
 
   return (
@@ -118,7 +170,7 @@ const Contact = () => {
                       rel="noopener noreferrer"
                       className="text-muted-foreground text-primary transition-colors"
                     >
-                      Thu Duc, Ho Chi Minh City, Vietnam
+                      Thu Duc, Ho Chi Minh City, Viet Nam
                     </a>
                   </div>
                 </div>
@@ -130,7 +182,7 @@ const Contact = () => {
                 Send Message
               </h3>
 
-              <form className="space-y-7" onSubmit={handleSubmit}>
+              <form className="space-y-7" ref={form} onSubmit={sendEmail}>
                 <div className="relative h-16">
                   <label
                     htmlFor="name"
